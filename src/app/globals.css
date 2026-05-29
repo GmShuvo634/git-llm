@@ -1,0 +1,588 @@
+/* ----- Google Fonts ---------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+
+@custom-variant dark (&:is(.dark *));
+
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Pixel / Monolith design tokens */
+  --silver-1: #f4f4f6;
+  --silver-2: #d8d9de;
+  --silver-3: #b9bbc2;
+  --silver-4: #8a8d96;
+  --silver-5: #5a5d66;
+  --pixel-dark: #030213;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* ----- Tailwind @theme inline map -------------------------- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ============================================================
+   BASE LAYER  (typography resets + Tailwind base)
+   ============================================================ */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  h4 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  label {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
+
+/* ============================================================
+   GLOBAL / PIXEL-MONOLITH DESIGN SYSTEM
+   ============================================================ */
+
+/* ----- Body defaults --------------------------------------- */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f4f4f6;
+  color: #030213;
+  image-rendering: pixelated;
+}
+
+/* ----- Pixel font helpers ---------------------------------- */
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 0.02em;
+}
+
+.font-pixel-readable {
+  font-family: 'VT323', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* ----- Silver gradient text -------------------------------- */
+.silver-text {
+  background: linear-gradient(180deg, #ffffff 0%, #e8e9ee 35%, #b9bbc2 60%, #8a8d96 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.5));
+}
+
+.silver-text-dark {
+  background: linear-gradient(180deg, #030213 0%, #2a2a3d 30%, #5a5d66 70%, #8a8d96 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ----- Pixel grid backgrounds ------------------------------ */
+.pixel-grid-light {
+  background-color: #f4f4f6;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(3, 2, 19, 0.06) 0px, rgba(3, 2, 19, 0.06) 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(90deg,  rgba(3, 2, 19, 0.06) 0px, rgba(3, 2, 19, 0.06) 1px, transparent 1px, transparent 32px);
+  position: relative;
+}
+
+.pixel-grid-dark {
+  background-color: #030213;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(184, 187, 194, 0.06) 0px, rgba(184, 187, 194, 0.06) 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(90deg,  rgba(184, 187, 194, 0.06) 0px, rgba(184, 187, 194, 0.06) 1px, transparent 1px, transparent 32px);
+  position: relative;
+}
+
+/* ----- Mouse glow ------------------------------------------ */
+.mouse-glow {
+  pointer-events: none;
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 0 !important;
+  transform: translate(-50%, -50%);
+  background:
+    radial-gradient(circle, rgba(138, 141, 150, 0.22) 0%, rgba(138, 141, 150, 0.08) 35%, transparent 70%);
+  mix-blend-mode: multiply;
+  z-index: 1;
+  transition: opacity 200ms ease;
+}
+
+.mouse-glow.dark {
+  background:
+    radial-gradient(circle, rgba(216, 217, 222, 0.18) 0%, rgba(216, 217, 222, 0.05) 40%, transparent 70%);
+  mix-blend-mode: screen;
+}
+
+/* ----- Pixel borders / cards ------------------------------- */
+.pixel-border-silver {
+  border: 2px solid var(--silver-2);
+  box-shadow:
+    inset -2px -2px 0 0 var(--silver-5),
+    inset  2px  2px 0 0 var(--silver-1),
+    4px 4px 0 0 #000;
+}
+
+/* ----- Buttons --------------------------------------------- */
+.pixel-btn {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 0.05em;
+  background: linear-gradient(180deg, #e8e9ee 0%, #b9bbc2 100%);
+  color: #030213;
+  border: 2px solid #030213;
+  box-shadow:
+    inset -2px -2px 0 0 #8a8d96,
+    inset  2px  2px 0 0 #ffffff,
+    4px 4px 0 0 #030213;
+  padding: 14px 22px;
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 200ms ease;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.pixel-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: translateX(-100%);
+  transition: transform 600ms ease;
+  pointer-events: none;
+}
+
+.pixel-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow:
+    inset -2px -2px 0 0 #8a8d96,
+    inset  2px  2px 0 0 #ffffff,
+    2px 2px 0 0 #030213;
+  filter: brightness(1.05);
+}
+
+.pixel-btn:hover::after {
+  transform: translateX(100%);
+}
+
+.pixel-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow:
+    inset -2px -2px 0 0 #8a8d96,
+    inset  2px  2px 0 0 #ffffff,
+    0 0 0 0 #030213;
+}
+
+.pixel-btn-dark {
+  background: linear-gradient(180deg, #2a2a3d 0%, #030213 100%);
+  color: #f4f4f6;
+  border: 2px solid #b9bbc2;
+  box-shadow:
+    inset -2px -2px 0 0 #000,
+    inset  2px  2px 0 0 #5a5d66,
+    4px 4px 0 0 #b9bbc2;
+}
+
+.pixel-btn-dark:hover {
+  box-shadow:
+    inset -2px -2px 0 0 #000,
+    inset  2px  2px 0 0 #5a5d66,
+    2px 2px 0 0 #b9bbc2;
+}
+
+/* ----- Cards ----------------------------------------------- */
+.pixel-card {
+  background: linear-gradient(180deg, #0a0a1a 0%, #030213 100%);
+  border: 2px solid #b9bbc2;
+  box-shadow:
+    inset -2px -2px 0 0 #5a5d66,
+    inset  2px  2px 0 0 #d8d9de,
+    8px 8px 0 0 rgba(0, 0, 0, 0.7);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.pixel-card-light {
+  background: linear-gradient(180deg, #ffffff 0%, #e8e9ee 100%);
+  border: 2px solid #030213;
+  box-shadow:
+    inset -2px -2px 0 0 #b9bbc2,
+    inset  2px  2px 0 0 #ffffff,
+    6px 6px 0 0 #030213;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  position: relative;
+}
+
+.pixel-card-light:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    inset -2px -2px 0 0 #b9bbc2,
+    inset  2px  2px 0 0 #ffffff,
+    10px 10px 0 0 #030213;
+}
+
+/* ----- Inputs ---------------------------------------------- */
+.pixel-input {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  background: #0a0a1a;
+  color: #f4f4f6;
+  border: 2px solid #b9bbc2;
+  box-shadow: inset 2px 2px 0 0 #000, inset -2px -2px 0 0 #5a5d66;
+  padding: 10px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 150ms ease;
+}
+
+.pixel-input:focus {
+  border-color: #ffffff;
+}
+
+.pixel-input-light {
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  background: #ffffff;
+  color: #030213;
+  border: 2px solid #030213;
+  box-shadow: inset 2px 2px 0 0 #b9bbc2, inset -2px -2px 0 0 #ffffff;
+  padding: 10px 14px;
+  outline: none;
+  width: 100%;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.pixel-input-light:focus {
+  border-color: #5a5d66;
+  box-shadow: inset 2px 2px 0 0 #8a8d96, inset -2px -2px 0 0 #ffffff, 0 0 0 2px #b9bbc2;
+}
+
+/* ----- Pixel checkered dividers ---------------------------- */
+.pixel-divider {
+  height: 8px;
+  background-image:
+    linear-gradient(90deg, #b9bbc2 50%, transparent 50%),
+    linear-gradient(90deg, transparent 50%, #5a5d66 50%);
+  background-size: 16px 4px, 16px 4px;
+  background-position: 0 0, 0 4px;
+}
+
+.pixel-divider-light {
+  height: 8px;
+  background-image:
+    linear-gradient(90deg, #030213 50%, transparent 50%),
+    linear-gradient(90deg, transparent 50%, #8a8d96 50%);
+  background-size: 16px 4px, 16px 4px;
+  background-position: 0 0, 0 4px;
+}
+
+/* ----- Scanline overlay ------------------------------------ */
+.scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  z-index: 1;
+}
+
+/* ----- Disable rounded corners globally -------------------- */
+* {
+  border-radius: 0 !important;
+}
+
+/* ----- Slick dots ------------------------------------------ */
+.slick-dots li button:before {
+  color: #b9bbc2 !important;
+  font-size: 10px !important;
+  opacity: 0.6 !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* ----- Progress blocks ------------------------------------- */
+.pixel-block-filled {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 0.5) 100%
+    ),
+    linear-gradient(180deg, #f4f4f6 0%, #b9bbc2 50%, #8a8d96 100%);
+  background-size: 200% 100%, 100% 100%;
+  animation: shimmer 2.4s linear infinite;
+  border: 1px solid #ffffff;
+  box-shadow: inset -1px -1px 0 0 #5a5d66, inset 1px 1px 0 0 #ffffff;
+}
+
+.pixel-block-empty {
+  background: #e8e9ee;
+  border: 1px solid #b9bbc2;
+}
+
+.pixel-block-empty-dark {
+  background: #0a0a1a;
+  border: 1px solid #2a2a3d;
+}
+
+/* ----- Hover lift utility ---------------------------------- */
+.hover-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.hover-lift:hover {
+  transform: translate(-2px, -2px);
+}
+
+/* ----- Nav tab indicator ----------------------------------- */
+.nav-tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: #030213;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.nav-tab:hover::before {
+  transform: scaleX(1);
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-up {
+  animation: fade-up 600ms ease-out both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.anim-fade-in {
+  animation: fade-in 500ms ease-out both;
+}
+
+@keyframes pixel-pop {
+  0%   { opacity: 0; transform: scale(0.85); }
+  60%  {             transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1);    }
+}
+
+.anim-pop {
+  animation: pixel-pop 400ms steps(6, end) both;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes block-flip {
+  0%   { transform: rotateY(90deg); opacity: 0; }
+  60%  { transform: rotateY(0deg);  opacity: 1; }
+  100% { transform: rotateY(0deg);  opacity: 1; }
+}
+
+.anim-block-flip {
+  animation: block-flip 500ms steps(4, end) both;
+}
+
+@keyframes blink {
+  0%,  49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.anim-blink {
+  animation: blink 1s steps(1, end) infinite;
+}
