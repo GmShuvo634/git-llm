@@ -1,0 +1,5 @@
+/* helpers for recruitment page delays and small inline styles moved out */
+.recruit-delay-200 { animation-delay: 200ms; }
+.recruit-delay-320 { animation-delay: 320ms; }
+.recruit-card-icon-bg { background: linear-gradient(180deg, #050505 0%, #5a5d66 100%); box-shadow: inset -2px -2px 0 0 #000, inset 2px 2px 0 0 #b9bbc2; }
+.textarea-resize-vertical { resize: vertical; }
