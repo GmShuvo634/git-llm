@@ -1,0 +1,5 @@
+/* small utilities for staggered delays used by Tier2 page */
+.tier2-delay-100 { animation-delay: 100ms; }
+.tier2-delay-200 { animation-delay: 200ms; }
+.tier2-delay-300 { animation-delay: 300ms; }
+.tier2-delay-400 { animation-delay: 400ms; }

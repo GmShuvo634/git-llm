@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ForumUserRole {
+  USER
+  ADMIN
+}
+
+enum ForumPostStatus {
+  PENDING
+  PUBLISHED
+}
+
+model ForumUser {
+  id                    String         @id @default(cuid())
+  username              String         @unique
+  email                 String         @unique
+  passwordHash          String
+  fullName              String
+  phoneNumber           String
+  undergraduateCollege  String
+  undergraduateCourse   String
+  city                  String
+  interestedIn          String[]
+  currentOccupation     String?
+  workExperienceMonths  String?
+  role                  ForumUserRole  @default(USER)
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  sessions              ForumSession[]
+  authoredPosts         ForumPost[]    @relation("ForumPostAuthor")
+  authoredComments      ForumComment[] @relation("ForumCommentAuthor")
+  approvedPosts         ForumPost[]    @relation("ForumPostApprover")
+}
+
+model ForumSession {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      ForumUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model ForumPost {
+  id           String          @id @default(cuid())
+  title        String
+  body         String
+  category     String
+  status       ForumPostStatus @default(PENDING)
+  authorId     String
+  approvedById String?
+  approvedAt   DateTime?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  author       ForumUser       @relation("ForumPostAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+  approvedBy   ForumUser?      @relation("ForumPostApprover", fields: [approvedById], references: [id], onDelete: SetNull)
+  comments     ForumComment[]
+
+  @@index([status, createdAt])
+  @@index([authorId])
+}
+
+model ForumComment {
+  id        String   @id @default(cuid())
+  text      String
+  postId    String
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  post      ForumPost @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    ForumUser @relation("ForumCommentAuthor", fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([postId, createdAt])
+  @@index([authorId])
+}
